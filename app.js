@@ -1,5 +1,6 @@
 const cheerio = require('cheerio');
 const request = require('request');
+const helpers = require('./utils/helpers');
 const fs      = require('fs');
 
 let index        = 1,
@@ -60,14 +61,15 @@ let getLinks = (url,maxLimit) => {
           $(urls).each((index,ele) => {
                
                let aLink = $(ele).attr('href');
-
+            if(helpers.checkValidUrl(aLink)) {  
                if(crawledLinks[aLink] !== 1) {
                   if(limit[url] < maxLimit) {
                   	   links.push(aLink);
                   	   crawledLinks[aLink] = 1;
                   	   limit[aLink] = limit[url] + 1; 
                   }     
-               } 
+               }
+             }  
           });
 
           index = index + 1;
@@ -112,7 +114,7 @@ request(webUrl,(err,res,body) => {
           $(urls).each((index,ele) => {
                
                let aLink = $(ele).attr('href');
-
+            if(helpers.checkValidUrl(aLink)) {   
                if(crawledLinks[aLink] !== 1) {
                   
                   if(limit[webUrl] < maxLimit) {
@@ -120,8 +122,8 @@ request(webUrl,(err,res,body) => {
                   	   crawledLinks[aLink] = 1;
                   	   limit[aLink] = limit[webUrl] + 1; 
                   }     
-               
-               } 
+               }
+             }   
           });
       
       fetchAllLinks(links,maxLimit);
