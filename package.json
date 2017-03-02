@@ -9,6 +9,7 @@
   "author": "Venkatesh SM",
   "license": "ISC",
   "dependencies": {
+    "async": "^2.1.5",
     "cheerio": "^0.22.0",
     "request": "^2.79.0"
   }
