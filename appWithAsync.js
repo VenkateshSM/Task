@@ -1,7 +1,7 @@
 const cheerio = require('cheerio');
 const request = require('request');
 const fs      = require('fs');
-const helpers = require('./util/helpers');
+const helpers = require('./utils/helpers');
 const async   = require('async');
 
 let crawledLinks = [],
