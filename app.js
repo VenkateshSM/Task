@@ -39,9 +39,7 @@ let getLinks = (url,maxLimit) => {
       	   return;
       }
       
-      console.log(limit[url] + ":" + index + ":" + url + ":" + links.length);
-
-      fs.appendFile('urls.csv',url + '\n',(err) => {
+     fs.appendFile('urls.csv',url + '\n',(err) => {
            if(err) {
            	  console.log(err);
            }
