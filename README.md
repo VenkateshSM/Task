@@ -1,4 +1,4 @@
-RentoMojo Medium Task
+RentoMojo Medium.com Task
 =========
 
 1.App.js is without Async it scrapes the medium url with concurrent limit 5.
